@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 var connection = mysql.createPool({
-    host:'localhost',
+    host:'u3r5w4ayhxzdrw87.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     port:'3306',
-    user:'root',
-    password:'',
-    database:'restaurant_booking'
+    user:'k5kqwn0xgxm4yqep',
+    password:'jonbh1cet0d0rdqe',
+    database:'dkvsgtjpxyaqnh3u'
 });
 module.exports = connection;

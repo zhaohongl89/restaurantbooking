@@ -6,7 +6,7 @@ const Booking = require("./Booking");
 class BookingDB {
     getRestaurantBookingByUserId(request, respond) {
         var userId = request.params.userId;
-        var sql = "select * from restaurant_booking.booking where userId = ?";
+        var sql = "select * from booking where userId = ?";
         db.query(sql, userId, function (error, result) {
             if (error) {
                 respond.status(401).json({ message: "No Bookings found" });
@@ -21,7 +21,7 @@ class BookingDB {
         var userId = request.body.userId;
         var booking_date = new Date();
 
-        var sql = "INSERT into restaurant_booking.booking(booking_date, userId, scheduleId) " +
+        var sql = "INSERT into booking(booking_date, userId, scheduleId) " +
             "VALUES(?,?,?)";
         
         var values = [booking_date, userId, scheduleId];    
@@ -55,7 +55,7 @@ class BookingDB {
         var booking_date = new Date();
         var scheduleId = request.body.scheduleId;
 
-        var sql = "UPDATE restaurant_booking.booking SET scheduleId = ?, booking_date = ? " +
+        var sql = "UPDATE booking SET scheduleId = ?, booking_date = ? " +
             "where id = ?";
         
         var values = [scheduleId, booking_date, bookingId];    

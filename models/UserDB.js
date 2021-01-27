@@ -7,7 +7,7 @@ class UserDB {
     login(request, respond) {
         var username = request.body.username;
         var password = request.body.password;
-        var sql = "select is_admin from restaurant_booking.user where username = ?";
+        var sql = "select is_admin from user where username = ?";
         db.query(sql, username, function (error, result) {
             if (error) {
                 respond.status(401).json({ message: "Login Unsuccessful" });
@@ -23,7 +23,7 @@ class UserDB {
         var password = request.body.password;
         var is_admin = "0";
 
-        var sql = "INSERT into restaurant_booking.user(username, password, is_admin)" +
+        var sql = "INSERT into user(username, password, is_admin)" +
             "VALUES(?,?,?)";
         var values = [username, password, is_admin]
         db.query(sql, values, function (error, result) {

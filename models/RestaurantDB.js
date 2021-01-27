@@ -5,7 +5,7 @@ const Restaurant = require("./Restaurant");
 
 class RestaurantDB {
     getAllRestaurants(request, respond) {
-     var sql = "select * from restaurant_booking.restaurant";
+     var sql = "select * from restaurant";
         db.query(sql, function (error, result) {
             if (error) {
                 respond.status(400).json({ message: "Retrieval  Unsuccessful" });
