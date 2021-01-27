@@ -7,13 +7,14 @@ class UserDB {
     login(request, respond) {
         var username = request.body.username;
         var password = request.body.password;
-        var sql = "select is_admin from user where username = ?";
-        db.query(sql, username, function (error, result) {
+        var sql = "select is_admin from user where username = ? and password = ?";
+        var values = [username, password];
+
+        db.query(sql, values, function (error, result) {
             if (error) {
                 respond.status(401).json({ message: "Login Unsuccessful" });
             }
             else {
-                console.log(result);
                 respond.status(200).json(result);
             }
         });
