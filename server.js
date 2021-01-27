@@ -7,8 +7,8 @@ const routeRest = require('./routes/routeRestaurant');
 
 const bodyParser = require("body-parser");
 var app = express();
-var host = "127.0.0.1";
-var port = 8080;
+//var host = "127.0.0.1";
+//var port = 8080;
 var startPage = "index.html";
 
 app.use(express.static("./public"));
@@ -28,7 +28,7 @@ app.get("/" + startPage, gotoIndex);
 
 app.route("/");
 
-var server = app.listen(port, host, function() {
+var server = app.listen(process.env.PORT || 8080, function() {
     var host = server.address().address;
     var port = server.address().port;
 
