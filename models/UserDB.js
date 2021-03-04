@@ -11,7 +11,7 @@ class UserDB {
         var values = [username, password];
 
         db.query(sql, values, function (error, result) {
-            if (error) {
+            if (result.length == 0 || error) {
                 respond.status(401).json({ message: "Login Unsuccessful" });
             }
             else {
